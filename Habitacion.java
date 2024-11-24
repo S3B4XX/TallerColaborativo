@@ -9,7 +9,8 @@ public class Habitacion {
     // Constructor
     public Habitacion(int numeroHabitacion, boolean disponible, String tipo, int capacidad) {
         this.numeroHabitacion = numeroHabitacion;
-        this.disponible = disponible;
+        // modificar inicilizando el disponible, como true para que todas las habitaciones comienzen como disponibles
+        this.disponible = true;
         this.tipo = tipo;
         this.capacidad = capacidad;
     }
@@ -23,9 +24,12 @@ public class Habitacion {
         return disponible;
     }
 
+    /*
+    Metodo ya no necesario si se usa le metodo ocupado y libre
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
+     */
 
     public String getTipo() {
         return tipo;
@@ -33,5 +37,26 @@ public class Habitacion {
 
     public int getCapacidad() {
         return capacidad;
+    }
+
+    //Metodos de reemplazo y cambio de la disponibilidad
+    public void ocupado(){
+        this.disponible = false;
+    }
+
+    public void libre(){
+        this.disponible = true;
+    }
+
+    //En necesario el metodo toString???
+
+    @Override
+    public String toString() {
+        return "Habitacion{" +
+                "numeroHabitacion=" + numeroHabitacion +
+                ", disponible=" + disponible +
+                ", tipo='" + tipo + '\'' +
+                ", capacidad=" + capacidad +
+                '}';
     }
 }
